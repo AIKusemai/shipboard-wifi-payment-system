@@ -137,15 +137,48 @@ const HomePage = ({ searchQuery = "", onSearch, activeCategory = "All" }) => {
                                         <div style={categoryTag}>{event.category}</div>
                                     </div>
                                     <div style={cardContent}>
+                                        <div style={cardTopRow}>
+                                          <span style={ticketBadge}>Cruise Service</span>
+                                          <span style={statusBadge}>Available</span>
+                                        </div>
+
                                         <h3 style={eventTitle}>{event.title}</h3>
-                                        <div style={infoRow}><Calendar size={14} color="#6f42c1" /> {new Date(event.eventDate).toLocaleDateString()}</div>
-                                        <div style={infoRow}><MapPin size={14} color="#6f42c1" /> {event.venue?.name}</div>
+
+                                        <div style={infoRow}>
+                                             <Calendar size={14} color="#6f42c1" />
+                                             <span>Departure Date: {new Date(event.eventDate).toLocaleDateString()}</span>
+                                        </div>
+
+                                        <div style={infoRow}>
+                                            <MapPin size={14} color="#6f42c1" />
+                                            <span>Boarding Point: {event.venue?.name || "To be announced"}</span>
+                                        </div>
+
+                                        <div style={cabinInfoBox}>
+                                            <div>
+                                                <div style={smallLabel}>Service Type</div>
+                                                <div style={cabinText}>Ticket / Onboard Wi-Fi</div>
+                                            </div>
+                                           
+                                            <div>
+                                                 <div style={smallLabel}>Starting From</div>
+                                                 <div style={priceValue}>₹{minPrice}</div>
+                                           </div>
+                                        </div>
+
                                         <div style={footerRow}>
-                                            <div><span style={priceLabel}>From</span> <span style={priceValue}>₹{minPrice}</span></div>
-                                            <div style={buyIndicator}><ArrowRight size={20} color="#fff" /></div>
+                                           <div>
+                                                <span style={priceLabel}>Book from</span>{" "}
+                                                <span style={priceValue}>₹{minPrice}</span>
+                                          </div>
+
+                                        <div style={bookButton}>
+                                            Book Now
+                                            <ArrowRight size={16} color="#fff" />
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                             );
                         })}
                     </div>
@@ -229,6 +262,13 @@ const imageWrapper = { position: 'relative', height: '240px' };
 const eventImg = { width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' };
 const categoryTag = { position: 'absolute', top: '20px', left: '20px', background: '#fff', padding: '6px 14px', borderRadius: '12px', fontSize: '12px', fontWeight: '900', color: '#6f42c1' };
 const cardContent = { padding: '25px' };
+const cardTopRow = { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" };
+const ticketBadge = { fontSize: "12px", fontWeight: "600", color: "#6f42c1", backgroundColor: "#f1e8ff", padding: "5px 10px", borderRadius: "20px" };
+const statusBadge = { fontSize: "12px", fontWeight: "600", color: "#198754", backgroundColor: "#e9f7ef", padding: "5px 10px", borderRadius: "20px" };
+const cabinInfoBox = { display: "flex", justifyContent: "space-between", alignItems: "center", backgroundColor: "#f8f5ff", borderRadius: "12px", padding: "12px", marginTop: "14px", marginBottom: "14px" };
+const smallLabel = { fontSize: "12px", color: "#777", marginBottom: "4px" };
+const cabinText = { fontSize: "14px", fontWeight: "600", color: "#333"};
+const bookButton = { display: "flex", alignItems: "center", gap: "6px", backgroundColor: "#6f42c1", color: "#fff", padding: "8px 12px", borderRadius: "20px", fontSize: "13px", fontWeight: "600" };
 const eventTitle = { margin: '0 0 12px 0', fontSize: '20px', fontWeight: '800' };
 const infoRow = { display: 'flex', alignItems: 'center', gap: '10px', color: '#666', fontSize: '14px', marginBottom: '8px' };
 const footerRow = { marginTop: '20px', paddingTop: '20px', borderTop: '1px solid #f9f9f9', display: 'flex', justifyContent: 'space-between', alignItems: 'center' };

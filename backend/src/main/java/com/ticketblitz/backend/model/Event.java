@@ -36,17 +36,35 @@ public class Event {
 
     private String imageUrl; // For high-res posters
 
-//    @Future(message = "Event date must be in the future")?
     private LocalDate eventDate;
+    
+//    @Future(message = "Event date must be in the future")?
+   /**
+    * 航次编号，例如 VP-2026-001。
+    */
+    private String voyageNumber;
+
+   /**
+    * 出发港口，例如 Tokyo Port。
+    */
+    private String departurePort;
 
     /**
-     * TOP 1% G ENRICHMENT:
-     * Explicitly stores the start time (e.g., "07:00 PM").
-     * This fixes the "Missing Timing" bug in the user wallet.
+     * 到达港口，例如 Yokohama Port。
      */
+    private String arrivalPort;
+
+    /**
+    * 登船时间，例如 17:30。
+    */
+    private String boardingTime;
+
+   /**
+   * 开航时间，例如 18:00。
+   */
     private String eventTime;
 
-    private String category; // Music, Sports, Tech, Arts, etc.
+    private String category;// Music, Sports, Tech, Arts, etc.
 
     @ManyToOne(fetch = FetchType.EAGER) // Eagerly load venue to ensure metadata is always available
     @JoinColumn(name = "venue_id")

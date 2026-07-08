@@ -11,6 +11,9 @@ import MyTickets from "./pages/MyTickets";
 import { isTokenExpired } from './utils/auth'; 
 import PartnerWithUs from "./pages/PartnerWithUs";
 import HelpCenter from "./pages/HelpCenter";
+import WifiPortal from "./pages/WifiPortal";
+import AdminWifiSessions from "./pages/AdminWifiSessions";
+import InternetAccess from "./pages/InternetAccess";
 
 /**
  * The 'Glue' that synchronizes Global Discovery State and Secure Route Guards.
@@ -64,7 +67,10 @@ function App() {
               activeCategory={activeCategory} 
             /> : <Navigate to="/login" replace />} 
         />
-        
+        <Route
+          path="/internet"
+          element={isAuthenticated() ? <InternetAccess /> : <Navigate to="/login" />}
+        />
         {/* PUBLIC ACCESS BRICKS */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
@@ -78,7 +84,10 @@ function App() {
           path="/my-tickets" 
           element={isAuthenticated() ? <MyTickets /> : <Navigate to="/login" replace />} 
         />
-
+        <Route
+          path="/wifi"
+          element={isAuthenticated() ? <WifiPortal /> : <Navigate to="/login" />}
+        />
         <Route path="/partner" element={<PartnerWithUs />} />
         <Route path="/help" element={<HelpCenter />} />
         
@@ -88,7 +97,14 @@ function App() {
             <AdminDashboard /> 
           </AdminRoute>
         } />
-
+        <Route 
+          path="/admin/wifi"
+          element={
+            <AdminRoute>
+              <AdminWifiSessions />
+            </AdminRoute>
+          }
+        />
         {/* SECURITY CATCH-ALL */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

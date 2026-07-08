@@ -5,7 +5,8 @@ import {
     Search, Music, Trophy, Laptop, Palette, 
     LayoutGrid, CircleUser, ClipboardList, LogIn,
     Handshake, 
-    HelpCircle
+    HelpCircle,
+    Wifi
 } from 'lucide-react';
 
 /**
@@ -75,7 +76,9 @@ const Navbar = ({ onSearch, activeCategory, setActiveCategory }) => {
                 {/* DYNAMIC ACTION AREA */}
                 <div style={linksStyle}>
                     <button onClick={() => navigate("/home")} style={linkBtn}>Voyages</button>
-                    
+                    <button onClick={() => navigate("/wifi")} style={linkBtn}>
+                        <Wifi size={18} /> Ship Wi-Fi
+                    </button>
                     {token ? (
                         <>
                             {/* USER WALLET */}
@@ -98,7 +101,11 @@ const Navbar = ({ onSearch, activeCategory, setActiveCategory }) => {
                                     <LayoutDashboard size={18} style={{marginRight: '5px'}} /> Admin
                                 </Link>
                             )}
-
+                            {role === 'ADMIN' && (
+                                <button onClick={() => navigate("/admin/wifi")} style={adminLink}>
+                                    <Wifi size={16} /> Wi-Fi Admin
+                                </button>
+            )}
                             {/* IDENTITY DROPDOWN */}
                             <div style={{ position: 'relative' }} ref={dropdownRef}>
                                 <div style={avatarCircle} onClick={() => setShowProfile(!showProfile)}>

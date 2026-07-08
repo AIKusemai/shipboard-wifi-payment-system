@@ -10,8 +10,12 @@ function AdminEventForm({ onClose, refreshData, initialData, venues }) {
         description: "",
         imageUrl: "",
         eventDate: "",
-        eventTime: "", 
-        category: "Music", 
+        voyageNumber: "",
+        departurePort: "",
+        arrivalPort: "",
+        boardingTime: "",
+        eventTime: "",
+        category: "Music",
         venue: { id: "" },
         ticketTiers: [
             { tierName: "General Admission", price: 0, availableStock: 0, benefits: "Standard Entry" }
@@ -147,7 +151,12 @@ function AdminEventForm({ onClose, refreshData, initialData, venues }) {
                 <textarea placeholder="Detailed Event Narrative..." required value={eventData.description} onChange={(e) => setEventData({...eventData, description: e.target.value})} style={{...inputStyle, gridColumn: 'span 2', height: '60px'}} />
                 
                 <div style={{gridColumn: 'span 2', display: 'flex', gap: '12px'}}>
-                    <input type="date" required value={eventData.eventDate} onChange={(e) => setEventData({...eventData, eventDate: e.target.value})} style={{...inputStyle, flex: 1}} />
+                    <input 
+                        type="date"     
+                        required 
+                        value={eventData.eventDate} 
+                        onChange={(e) => setEventData({...eventData, eventDate: e.target.value})} 
+                        style={{...inputStyle, flex: 1}} />
                     
                     <select 
                         value={eventData.venue?.id || ""} 
@@ -160,6 +169,42 @@ function AdminEventForm({ onClose, refreshData, initialData, venues }) {
                             <option key={v.id} value={v.id}>{v.name} — {v.city}</option>
                         ))}
                     </select>
+                </div>
+
+                <div style={{gridColumn: 'span 2', display: 'flex', gap: '12px'}}>
+                    <input
+                        type="text"
+                        placeholder="Voyage Number，例如 VP-2026-001"
+                        value={eventData.voyageNumber || ""}
+                        onChange={(e) => setEventData({...eventData, voyageNumber: e.target.value})}
+                        style={{...inputStyle, flex: 1}}
+                    />
+
+                    <input
+                         type="time"
+                         placeholder="Boarding Time"
+                         value={eventData.boardingTime || ""}
+                         onChange={(e) => setEventData({...eventData, boardingTime: e.target.value})}
+                         style={{...inputStyle, flex: 1}}
+                    />
+                </div>            
+
+                <div style={{gridColumn: 'span 2', display: 'flex', gap: '12px'}}>
+                     <input
+                         type="text"
+                         placeholder="Departure Port，例如 Tokyo Port"
+                         value={eventData.departurePort || ""}
+                         onChange={(e) => setEventData({...eventData, departurePort: e.target.value})}
+                         style={{...inputStyle, flex: 1}}
+                    />
+
+                    <input
+                         type="text"
+                         placeholder="Arrival Port，例如 Yokohama Port"
+                         value={eventData.arrivalPort || ""}
+                         onChange={(e) => setEventData({...eventData, arrivalPort: e.target.value})}
+                         style={{...inputStyle, flex: 1}}
+                     />
                 </div>
 
                 <div style={{...inputStyle, gridColumn: 'span 2', display: 'flex', alignItems: 'center', gap: '10px'}}>
