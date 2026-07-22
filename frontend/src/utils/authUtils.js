@@ -22,8 +22,8 @@ export const getUserRoleFromToken = () => {
           return roleData[0];
       }
       return roleData; 
-    } catch (e) {
-      console.error("Error decoding token:", e);
+    } catch (error) {
+      console.error("Error decoding token:", error);
       return null;
     }
   };

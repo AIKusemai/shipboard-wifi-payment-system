@@ -7,7 +7,7 @@ export const isTokenExpired = (token) => {
         const currentTime = Date.now() / 1000; // Convert to seconds
         
         return payload.exp < currentTime;
-    } catch (e) {
+    } catch {
         return true; // If decoding fails, assume it's invalid/expired
     }
 };

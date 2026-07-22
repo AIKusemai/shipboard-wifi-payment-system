@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "shiptourwifi-frontend",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,30 +10,21 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@stomp/stompjs": "^7.2.1",
-    "axios": "^1.13.2",
-    "canvas-confetti": "^1.9.4",
-    "html2canvas": "^1.4.1",
-    "jspdf": "^4.0.0",
+    "axios": "^1.18.1",
     "lucide-react": "^0.562.0",
-    "qrcode.react": "^4.2.0",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "react-qr-code": "^2.0.18",
-    "react-router-dom": "^7.12.0",
-    "recharts": "^3.6.0",
-    "sockjs-client": "^1.6.1",
-    "stompjs": "^2.3.3"
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-router-dom": "^7.18.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.1",
-    "@types/react": "^19.2.5",
+    "@eslint/js": "^9.39.4",
+    "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^5.1.1",
-    "eslint": "^9.39.1",
-    "eslint-plugin-react-hooks": "^7.0.1",
+    "@vitejs/plugin-react": "^5.2.0",
+    "eslint": "^9.39.4",
+    "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
-    "vite": "^7.2.4"
+    "vite": "^7.3.6"
   }
 }
