@@ -156,9 +156,3 @@ npm run build
 ```js
 http://localhost:8080/api
 ```
-
-## 当前说明
-
-- 本地默认使用 H2 内存库，后端重启后数据会重置
-- Java 包名已统一为 `com.shiptourwifi`
-- 当前目录中的 `.git` 元数据不完整，不能直接作为标准 Git 工作树使用
